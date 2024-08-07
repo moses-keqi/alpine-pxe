@@ -1,6 +1,8 @@
 port=53
 user=dnsmasq
 group=dnsmasq
+server=114.114.114.114
+server=8.8.8.8
 interface=lo
 bind-interfaces
 interface=${DNS_INTERFACE}
