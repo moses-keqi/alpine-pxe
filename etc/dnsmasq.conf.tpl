@@ -1,0 +1,12 @@
+port=53
+user=dnsmasq
+group=dnsmasq
+interface=lo
+bind-interfaces
+interface=${DNS_INTERFACE}
+addn-hosts=/etc/dnsmasq_hosts
+log-dhcp
+dhcp-boot=debian-installer/arm64/bootnetaa64.efi
+enable-tftp
+tftp-root=/var/lib/tftpboot
+conf-dir=/etc/dnsmasq.d,.rpmnew,.rpmsave,.rpmorig

@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  pxe:
+    image: moese/alpine-pxe:20240806001
+    container_name: pxe
+    environment:
+      - "CMDLINE=--dhcp-range=192.168.96.254,proxy"
+      - "HOST_IP=-192.168.96.180"
+      - "NFS_BASE_PATH=/data/share"
+      - "DNS_INTERFACE=enp0s1"
+    #    volumes:
+    #      - ./tftp:/var/lib/tftpboot
+    restart: unless-stopped
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN
