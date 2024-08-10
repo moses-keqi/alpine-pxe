@@ -1,13 +1,17 @@
-set menu_color_normal=cyan/blue
-set menu_color_highlight=white/blue
-set menu_color_highlight=black/light-gray
-
 insmod gzio
 insmod part_gpt
 insmod ext2
 insmod gfxmenu
 insmod png
 export theme
+
+set menu_color_normal=cyan/blue
+#set menu_color_highlight=white/blue
+set menu_color_highlight=black/light-gray
+
+set default=0
+set timeout=10
+set is_preload=false
 
 menuentry 'Start Kylin diskless'{
     set backgroud_color=black

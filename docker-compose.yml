@@ -4,12 +4,14 @@ services:
     image: moese/alpine-pxe:20240806001
     container_name: pxe
     environment:
-      - "CMDLINE=--dhcp-range=192.168.0.50,192.168.0.150,255.255.255.0,1h"
-      - "HOST_IP=192.168.0.180"
-      - "NFS_BASE_PATH=/data/share"
+      #- "CMDLINE=--dhcp-range=192.168.96.50,192.168.96.150,255.255.255.0,1h"
+      - "CMDLINE=--dhcp-range=192.168.1.50,192.168.1.150,255.255.255.0,1h"
+      #- "HOST_IP=192.168.96.180"
+      - "HOST_IP=192.168.1.180"
+      - "NFS_BASE_PATH=/home/share"
       - "DNS_INTERFACE=enp0s1"
-    #    volumes:
-    #      - ./tftp:/var/lib/tftpboot
+    volumes:
+      - ./kylin:/var/lib/tftpboot/debian-installer/arm64/kylin
     restart: unless-stopped
     network_mode: "host"
     cap_add:

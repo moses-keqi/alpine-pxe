@@ -3,6 +3,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.nju.edu.cn/g' /etc/apk/repositories
 RUN  mkdir -p /var/lib/tftpboot
 COPY etc/dnsmasq.conf.tpl /etc/dnsmasq.conf.tpl
 COPY etc/dnsmasq_hosts /etc/dnsmasq_hosts
+COPY etc/resolv.dnsmasq.conf.tpl /etc/resolv.dnsmasq.conf.tpl
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY webproc_0.4.0_linux_arm64.gz /opt/webproc_0.4.0_linux_arm64.gz
 ADD debian-installer /var/lib/tftpboot/
